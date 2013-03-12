@@ -39,6 +39,8 @@ MealPlanner::Application.routes.draw do
   #     end
   #   end
 
+  resources :recipes
+
   # Sample resource route within a namespace:
   #   namespace :admin do
   #     # Directs /admin/products/* to Admin::ProductsController
