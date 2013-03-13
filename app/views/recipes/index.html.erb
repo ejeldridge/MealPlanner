@@ -1,3 +1,21 @@
+<h3> List of Recipes in your library</h3>
+<hr>
+<%= link_to "Add", new_recipe_path() %>
+
+
+
 <div class="span10">
-  Place holder
+  <% @recipes.each do |recipe| %>
+      <div class="span10 hero-unit">
+        <div class="recipename span6" style="float:left;">
+          <strong>Recipe Name:</strong> <%= recipe.recipename %>
+        </div>
+        <div class="span9" style="text-align: right;">
+          <%= link_to "<i class='icon-pencil'></i>".html_safe, edit_recipe_path(recipe) %>
+        </div>
+        <div class="span9" style="text-align: right;">
+          <%= link_to "<i class='icon-trash'></i>".html_safe, recipe_path(recipe), :method => "delete" %>
+        </div>
+      </div>
+  <% end %>
 </div>
