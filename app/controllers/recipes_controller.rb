@@ -1,26 +1,26 @@
 class RecipesController < ApplicationController
 
   def index
-    @recipes = Recipes.all
+    @recipes = Recipe.all
   end
 
   def edit
-    @recipe = Recipes.find_by_id(params[:id])
+    @recipe = Recipe.find_by_id(params[:id])
   end
 
   def update
-    @recipe = Recipes.find(params[:id])
+    @recipe = Recipe.find(params[:id])
     if @recipe.update_attributes(params[:recipe])
-      flash[:notice] = "Successfully updated product titled: #{@recipe.recipename}"
+      flash[:notice] = "Successfully updated product titled: #{@recipe.recipe_name}"
     end
     redirect_to root_url
   end
 
   def destroy
-    @recipe = Recipes.find(params[:id])
+    @recipe = Recipe.find(params[:id])
     @recipe.destroy
     if @recipe.destroyed?
-      flash[:notice] = "Successfully destroyed #{@recipe.recipename}!!!!"
+      flash[:notice] = "Successfully destroyed #{@recipe.recipe_name}!!!!"
     else
       flash[:error] = "Could not delete the object"
     end
@@ -28,11 +28,11 @@ class RecipesController < ApplicationController
   end
 
   def new
-    @recipe = Recipes.new()
+    @recipe = Recipe.new()
   end
 
   def create
-    @recipe = Recipes.new(params[:recipe])
+    @recipe = Recipe.new(params[:recipe])
     @recipe.save
 
     redirect_to root_url

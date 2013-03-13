@@ -7,8 +7,8 @@
 <div class="span10">
   <% @recipes.each do |recipe| %>
       <div class="span10 hero-unit">
-        <div class="recipename span6" style="float:left;">
-          <strong>Recipe Name:</strong> <%= recipe.recipename %>
+        <div class="recipe_name span6" style="float:left;">
+          <strong>Recipe Name:</strong> <%= recipe.recipe_name %>
         </div>
         <div class="span9" style="text-align: right;">
           <%= link_to "<i class='icon-pencil'></i>".html_safe, edit_recipe_path(recipe) %>
