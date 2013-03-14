@@ -1,3 +1,4 @@
+require 'digest/sha2'
 class UserAccountsController < ApplicationController
 
   def index
@@ -8,7 +9,6 @@ class UserAccountsController < ApplicationController
     error_occured = false
     @user = UserAccount.new()
     @user_accounts = UserAccount.all
-    flash[:notice] = params.to_s
     if params[:user_account][:first_name].to_s.empty?
       flash[:error] = "First Name blank!"
       error_occured = true
@@ -36,13 +36,25 @@ class UserAccountsController < ApplicationController
     end
 
     @user_accounts.each do |account|
-
+      if params[:user_account][:user_name] == account.user_name
+        flash[:error] = "User Name in use!"  #TODO: Modify this to detect existing error and concatenate
+        error_occured = true
+      end
     end
 
     if error_occured
       redirect_to root_url  #TODO:  replace with showing the form again
     else
-      # flash[:notice] = "Everything looks ok."
+      @user.first_name = params[:user_account][:first_name].to_s
+      @user.last_name = params[:user_account][:last_name].to_s
+      @user.user_name = params[:user_account][:user_name].to_s
+      @user.email = params[:user_account][:email].to_s
+      o =  [('a'..'z'),('A'..'Z')].map{|i| i.to_a}.flatten
+      @user.salt  =  (0...50).map{ o[rand(o.length)] }.join
+      #TODO: Improve password hash
+      @user.password_hash = Digest::SHA2.hexdigest(@user.salt + params[:user_account][:password].to_s)
+      @user.save
+      flash[:notice] = "User '" + @user.user_name.to_s + "' created."
       redirect_to root_url
     end
 

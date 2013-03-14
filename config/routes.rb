@@ -38,7 +38,7 @@ MealPlanner::Application.routes.draw do
   #       get 'recent', :on => :collection
   #     end
   #   end
-
+  post "/login/" => 'application#login'
   resources :recipes
   resources :user_accounts
 
