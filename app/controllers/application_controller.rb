@@ -36,6 +36,7 @@ class ApplicationController < ActionController::Base
 
   def logout
     session.clear
+    flash[:notice] = "You have logged out."
     redirect_to root_url
   end
 end
