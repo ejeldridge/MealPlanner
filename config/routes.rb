@@ -40,6 +40,7 @@ MealPlanner::Application.routes.draw do
   #   end
 
   resources :recipes
+  resources :user_accounts
 
   # Sample resource route within a namespace:
   #   namespace :admin do

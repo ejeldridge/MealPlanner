@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  first_name: MyString
+  last_name: MyString
+  email: MyString
+  seed: MyString
+  password_hash: MyString
+  session: MyString
+  session_expire: 2013-03-13 13:09:56
+
+two:
+  first_name: MyString
+  last_name: MyString
+  email: MyString
+  seed: MyString
+  password_hash: MyString
+  session: MyString
+  session_expire: 2013-03-13 13:09:56
