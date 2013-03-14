@@ -54,7 +54,7 @@
           </li>
           <li><a href="#about">About</a></li>
           <li><a href="#contact">Contact</a></li>
-          <li><%= link_to "Create Account", user_accounts_path() %></li>
+          <li><%= link_to "Create Account", user_accounts_path() unless session[:user] %></li>
         </ul>
 
         <form action="/login" class="navbar-form pull-right" method="post">
@@ -66,7 +66,7 @@
     </div>
   </div>
 </div>
-
+<%= puts cookies[:user_name] %>
 <div class="container">
   <% flash.each do |type, msg| %>
       <% if msg.is_a?(String) %>

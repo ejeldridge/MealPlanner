@@ -13,17 +13,29 @@ class ApplicationController < ActionController::Base
         end
       end
     end
-    if user_found != true
+    if !user_found
       flash[:error] = "User '" + params[:user_name].to_s + "' not found!"
       redirect_to root_url
-    elsif good_login != true
+    elsif !good_login
       flash[:error] = "Password did not match"
       redirect_to root_url
     else
-      flash[:notice] = "Login Valid"
+      o =  [('a'..'z'),('A'..'Z')].map{|i| i.to_a}.flatten
+      session_id  =  (0...50).map{ o[rand(o.length)] }.join
+      session[:user] = params[:user_name]
+      my_account = UserAccount.find_by_user_name(params[:user_name])
+      my_account.session = session_id
+      my_account.session_expire = Time.now + 3600
+      my_account.save
+      flash[:notice] = "Welcome back " + my_account.first_name
       redirect_to root_url
     end
 
 
+  end
+
+  def logout
+    session.clear
+    redirect_to root_url
   end
 end

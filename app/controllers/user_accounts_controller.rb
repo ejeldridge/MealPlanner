@@ -61,7 +61,4 @@ class UserAccountsController < ApplicationController
 
   end
 
-  def show
-
-  end
 end

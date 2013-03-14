@@ -39,6 +39,7 @@ MealPlanner::Application.routes.draw do
   #     end
   #   end
   post "/login/" => 'application#login'
+  match "/logout/" => 'application#logout'
   resources :recipes
   resources :user_accounts
 
