@@ -1,13 +1,17 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js"> <!--<![endif]-->
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <title>Meal Planner</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= stylesheet_link_tag "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
   <meta name="description" content="">
@@ -23,7 +27,9 @@
 </head>
 <body>
 <!--[if lt IE 7]>
-<p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+<p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+    your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to
+    improve your experience.</p>
 <![endif]-->
 
 <!-- This code is taken from http://twitter.github.com/bootstrap/examples/hero.html -->
@@ -31,12 +37,8 @@
 <div class="navbar navbar-inverse navbar-fixed-top">
   <div class="navbar-inner">
     <div class="container">
-      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </a>
       <a class="brand" href="<%= root_url() %>">Meal Planner</a>
+
       <div class="nav-collapse collapse">
         <ul class="nav">
           <li class="active"><a href="<%= root_url() %>">Home</a></li>
@@ -64,18 +66,24 @@
           </li>
         </ul>
         <% if !session[:user] %>
-          <form action="/login" class="navbar-form pull-right" method="post">
-            <input class="span2" name="user_name" type="text" placeholder="Username">
-            <input class="span2" name="password" type="password" placeholder="Password">
-            <button type="submit" class="btn">Sign in</button>
-          </form>
+            <form action="/login" class="navbar-form pull-right" method="post">
+              <input class="span2" name="user_name" type="text" placeholder="Username">
+              <input class="span2" name="password" type="password" placeholder="Password">
+              <button type="submit" class="btn">Sign in</button>
+            </form>
         <% end %>
-      </div><!--/.nav-collapse -->
+      </div>
+      <!--/.nav-collapse -->
     </div>
   </div>
 </div>
 <%= puts cookies[:user_name] %>
-<div class="container">
+
+<div class="span4 sidebar">
+  <%= render_cell :recipe_list, :display %>
+  <%= render_cell :favorite_recent_recipes_list, :display %>
+</div>
+<div class="main-content container">
   <% flash.each do |type, msg| %>
       <% if msg.is_a?(String) %>
           <div class="alert alert-<%= type == :notice ? "success" : "error" %>">
@@ -86,18 +94,19 @@
   <% end %>
   <!-- Main hero unit for a primary marketing message or call to action -->
   <div>
-    <%=  yield %>
+    <%= yield %>
   </div>
 
   <hr>
 
 
+</div>
+<!-- /container -->
 
-</div> <!-- /container -->
-<div>
-  <footer>
-    <p>&copy; Company 2012</p>
-  </footer>
+<div id="footer">
+  <div class="container">
+    <p>&copy; Health Co-pilot 2012</p>
+  </div>
 </div>
 
 

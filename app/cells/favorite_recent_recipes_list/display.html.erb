@@ -1,0 +1,12 @@
+<div class="favorite recent recipes_list sidebar-item">
+  <span class="sidebar-title">Recent and Favorite Recipes</span>
+  <% @recipes.each do |recipe| %>
+      <div class="recipe">
+        <%= recipe.recipe_name %>
+        <!--<span class="edit_link"><%= link_to "<i class='icon-pencil'></i>".html_safe, edit_recipe_path(recipe) %></span>-->
+        <!--<span class="delete_link"><%= link_to "<i class='icon-trash'></i>".html_safe, recipe_path(recipe), :method => "delete" %></span>-->
+      </div>
+  <% end %>
+</div>
+
+

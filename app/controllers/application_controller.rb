@@ -1,6 +1,10 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
+  def index
+
+  end
+
   def login
     @user_accounts = UserAccount.all
     user_found, good_login = false, false
