@@ -43,6 +43,25 @@ Feature: User can create an account
     And I press "submit"
     Then I should be on the user_accounts page
     And I should see "Passwords did not match!"
+    And the "user_account_first_name" field should contain "Test"
+    And the "user_account_last_name" field should contain "User"
+    And the "user_account_email" field should contain "test@email.com"
+    And the "user_account_confirm_email" field should contain "test@email.com"
+
+  Scenario: Submit User Account with existing user
+    Given I am on the home page
+    When I follow "Create Account"
+    Then I should be on the user_accounts page
+    When I fill in "user_account_first_name" with "Test"
+    And I fill in "user_account_last_name" with "User"
+    And I fill in "user_account_user_name" with "static"
+    And I fill in "user_account_email" with "test@email.com"
+    And I fill in "user_account_confirm_email" with "test@email.com"
+    And I fill in "user_account_password" with "password"
+    And I fill in "user_account_confirm_password" with "password"
+    And I press "submit"
+    Then I should be on the user_accounts page
+    And I should see "User Name in use!"
 
   Scenario: Submit User Account with valid data
     Given I am on the home page
