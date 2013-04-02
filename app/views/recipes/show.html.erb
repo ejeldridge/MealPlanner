@@ -1,17 +1,35 @@
-<p id="notice"><%= notice %></p>
-
-<h3>Recipe View</h3>
-
-<p>
-  <b>Recipe Name:</b>
-  <%= @recipe.recipe_name %>
-</p>
-
-<p>
-  <b>Ingredients:</b>
-  <%= @recipe.ingredients %>
-</p>
-<p>
-  <b>Steps:</b>
-  <%= @recipe.steps %>
-</p>
+<div class="span6">
+  <% if @notice %>
+      <div class="notice hero-unit"><%= @notice %></div>
+  <% end %>
+  <div>
+    <h2 class="accordion-heading">Recipe Detail</h2>
+    <div class="">
+      <%= link_to "<i class='icon-pencil'></i>".html_safe, edit_recipe_path(@recipe) %>
+      <%= link_to "<i class='icon-trash'></i>".html_safe, recipe_path(@recipe), :method => "delete" %>
+    </div>
+  </div>
+  <hr>
+  <div class="accordion-group">
+    <p class="recipe_name">
+      <p class="label">Recipe Name:</p>
+      <div class="content"><%= @recipe.recipe_name %></div>
+    </p>
+    <p class="recipe_ingredients">
+      <p class="label">Ingredients:</p>
+      <ul class="">
+        <% @recipe.ingredients.each_line do |line| %>
+            <li><%= line %></li>
+        <% end %>
+      </ul>
+    </p>
+    <p class="recipe_steps">
+      <p class="label">Steps:</p>
+      <ol class="">
+        <% @recipe.steps.each_line do |line| %>
+            <li><%= line %></li>
+        <% end %>
+      </ol>
+    </p>
+  </div>
+</div>

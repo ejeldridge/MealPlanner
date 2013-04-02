@@ -7,3 +7,5 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 Recipe.create(recipe_name: 'Chocolate Cake', ingredients: 'stuff',
                steps: 'more stuff ahahahhah')
+Recipe.create(recipe_name: 'Apple Pie', ingredients: "Apples\nCinnamon\nSugar",
+               steps: "Make\nBake\nEat")

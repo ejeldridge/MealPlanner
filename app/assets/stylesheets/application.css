@@ -14,30 +14,31 @@
  */
 
 .sidebar {
-    position:fixed;
-    top:0;
-    left:0;
-    height: 100%;
-    background-color: #002a80;
-    padding: 50px 0 0 0;
-    margin: 0;
+    /*background-color: #a47e3c;*/
 }
-.sidebar-item {
-    background-color: white;
+
+.sidebar-item div {
+    background-color: #dbc59e;
+}
+
+.accordion-group {
     margin: 10px;
     padding: 10px;
-    border: 1px grey solid;
 }
 
 .sidebar-title {
     font-weight: bolder;
 }
 
-.main-content {
-    min-height: 100%;
+body {
+    /*background-color: lightslategrey;*/
 }
 
 .footer {
-    height: 60px;
+    position: fixed;
+}
+
+.content {
+    text-indent: 20px;
 }
 

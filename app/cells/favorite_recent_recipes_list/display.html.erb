@@ -1,14 +1,13 @@
-<div class="favorite recent recipes_list sidebar-item">
-  <span class="sidebar-title">Recent and Favorite Recipes</span>
-  <% @recipes.each do |recipe| %>
+<div class="accordion-group favorite recent recipes_list">
+  <div class="accordion-heading">
+    <span class="sidebar-title">Favorite and Recent Recipes</span>
+  </div>
 
-      <div class="recipe">
-        <%= recipe.recipe_name %>
-        <%= link_to 'Show', recipe %>
-       <span class="edit_link"><%= link_to "<i class='icon-pencil'></i>".html_safe, edit_recipe_path(recipe) %></span>
-       <span class="delete_link"><%= link_to "<i class='icon-trash'></i>".html_safe, recipe_path(recipe), :method => "delete" %></span>
-      </div>
-  <% end %>
+  <div class="accordion-inner">
+    <% @recipes.each do |recipe| %>
+        <div class="recipe">
+          <%= link_to recipe.recipe_name, recipe %>
+        </div>
+    <% end %>
+  </div>
 </div>
-
-
