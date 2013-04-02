@@ -1,14 +1,21 @@
 <div class="recipes-toolbox sidebar-item">
   <span class="sidebar-title">Recipes Toolbox</span>
+  <br>
+  <div class="btn">
+  <%= link_to "Add New Recipe", new_recipe_path() %>
+  </div>
+
 </div>
 <div class="recipes_list sidebar-item">
   <span class="sidebar-title">All Recipes</span>
+
   <% @recipes.each do |recipe| %>
       <div class="recipe">
         <%= recipe.recipe_name %>
         <!-- TODO: Confirmations on deleting or mov into edit recipe view -->
-        <!--<span class="edit_link"><%= link_to "<i class='icon-pencil'></i>".html_safe, edit_recipe_path(recipe) %></span>-->
-        <!--<span class="delete_link"><%= link_to "<i class='icon-trash'></i>".html_safe, recipe_path(recipe), :method => "delete" %></span>-->
+        <%= link_to 'Show', recipe %>
+        <%= link_to "<i class='icon-pencil'></i>".html_safe, edit_recipe_path(recipe) %></span>
+        <%= link_to "<i class='icon-trash'></i>".html_safe, recipe_path(recipe), :method => "delete" %></span>
       </div>
   <% end %>
 </div>

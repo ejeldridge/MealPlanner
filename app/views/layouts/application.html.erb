@@ -84,20 +84,32 @@
   <%= render_cell :favorite_recent_recipes_list, :display %>
 </div>
 <div class="main-content container">
-  <% flash.each do |type, msg| %>
-      <% if msg.is_a?(String) %>
-          <div class="alert alert-<%= type == :notice ? "success" : "error" %>">
-            <a class="close" data-dismiss="alert">&#215;</a>
-            <%= content_tag :div, msg, :id => "flash_#{type}" %>
-          </div>
-      <% end %>
-  <% end %>
+  <div class="container-fluid">
+    <div class="row-fluid">
+      <div class="span2">
+        <!--Sidebar content-->
+      </div>
+      <div class="span10">
   <!-- Main hero unit for a primary marketing message or call to action -->
-  <div>
-    <%= yield %>
-  </div>
+    <hr>
 
-  <hr>
+        <% flash.each do |type, msg| %>
+            <% if msg.is_a?(String) %>
+                <div class="alert alert-<%= type == :notice ? "success" : "error" %>">
+                  <a class="close" data-dismiss="alert">&#215;</a>
+                  <%= content_tag :div, msg, :id => "flash_#{type}" %>
+                </div>
+            <% end %>
+        <% end %>
+        <!--Body content-->
+        <div>
+          <%= yield %>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
 
 
 </div>
