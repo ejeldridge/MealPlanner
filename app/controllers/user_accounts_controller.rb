@@ -9,41 +9,45 @@ class UserAccountsController < ApplicationController
     error_occured = false
     @user = UserAccount.new()
     @user_accounts = UserAccount.all
+    flash[:error] = ""
     if params[:user_account][:first_name].to_s.empty?
-      flash[:error] = "First Name blank!"
+      flash[:error] += "First Name blank!    "
       error_occured = true
     end
     if params[:user_account][:last_name].to_s.empty?
-      flash[:error] = "Last Name blank!"
+      flash[:error] += "Last Name blank!    "
       error_occured = true
     end
     if params[:user_account][:email].to_s.empty?
-      flash[:error] = "Email addresses blank!"
+      flash[:error] += "Email addresses blank!    "
       error_occured = true
     end
     #TODO: Add better email format verification
     if params[:user_account][:email].to_s != params[:user_account][:confirm_email].to_s
-      flash[:error] = "Email addresses did not match!"
+      flash[:error] += "Email addresses did not match!    "
+      params[:user_account][:confirm_email] = ''
       error_occured = true
     end
     if params[:user_account][:password].to_s.empty?
-      flash[:error] = "Passwords empty!"  #TODO: Modify this to detect existing error and concatenate
+      flash[:error] += "Passwords empty!    "  #TODO: Modify this to detect existing error and concatenate
       error_occured = true
     end
     if params[:user_account][:password].to_s != params[:user_account][:confirm_password].to_s
-      flash[:error] = "Passwords did not match!"  #TODO: Modify this to detect existing error and concatenate
+      flash[:error] += "Passwords did not match!    "  #TODO: Modify this to detect existing error and concatenate
       error_occured = true
     end
 
     @user_accounts.each do |account|
       if params[:user_account][:user_name] == account.user_name
-        flash[:error] = "User Name in use!"  #TODO: Modify this to detect existing error and concatenate
+        flash[:error] += "User Name in use!    "  #TODO: Modify this to detect existing error and concatenate
+        params[:user_account][:user_name] = ''
         error_occured = true
       end
     end
 
     if error_occured
-      redirect_to root_url  #TODO:  replace with showing the form again
+      #redirect_to root_url  #TODO:  replace with showing the form again
+      redirect_to user_accounts_path(@post, :params => params)
     else
       @user.first_name = params[:user_account][:first_name].to_s
       @user.last_name = params[:user_account][:last_name].to_s
@@ -55,6 +59,12 @@ class UserAccountsController < ApplicationController
       @user.password_hash = Digest::SHA2.hexdigest(@user.salt + params[:user_account][:password].to_s)
       @user.save
       flash[:notice] = "User '" + @user.user_name.to_s + "' created."
+      session_id  =  (0...50).map{ o[rand(o.length)] }.join
+      session[:user] = @user.user_name
+      my_account = UserAccount.find_by_user_name(@user.user_name)
+      my_account.session = session_id
+      my_account.session_expire = Time.now + 3600
+      my_account.save
       redirect_to root_url
     end
 

@@ -78,19 +78,19 @@ th {
 	font-weight: bold;
 }
 div.exceed {
-	background-image: url(../images/img_status_exceed.png);
+	background-image: url(../images/PWDMeter/img_status_exceed.png);
 }
 div.fail {
-	background-image: url(../images/img_status_fail.png);
+	background-image: url(../images/PWDMeter/img_status_fail.png);
 }
 div.pass {
-	background-image: url(../images/img_status_pass.png);
+	background-image: url(../images/PWDMeter/img_status_pass.png);
 }
 div.warn {
-	background-image: url(../images/img_status_warn.png);
+	background-image: url(../images/PWDMeter/img_status_warn.png);
 }
 #scorebar {
-	background-image: url(../images/bg_strength_gradient.jpg);
+	background-image: url(../images/PWDMeter/bg_strength_gradient.jpg);
 	background-repeat: no-repeat;
 	background-position: 0 0;
 	position:absolute;
