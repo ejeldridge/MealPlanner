@@ -300,19 +300,9 @@ function chkPass(pwd) {
 }
 
 function togPwdMask() {
-	var oPwd = $("passwordPwd");
-	var oTxt = $("passwordTxt");
+	var oPwd = $("user_account_password");
 	var oMask = $("mask");
-	if (oMask.checked) { 
-		oPwd.value = oTxt.value;
-		oPwd.className = ""; 
-		oTxt.className = "hide"; 
-	} 
-	else { 
-		oTxt.value = oPwd.value;
-		oPwd.className = "hide"; 
-		oTxt.className = "";
-	}
+
 }
 
 function initPwdChk(restart) {

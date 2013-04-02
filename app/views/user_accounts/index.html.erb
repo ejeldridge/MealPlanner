@@ -1,39 +1,43 @@
 <div class="span10" xmlns="http://www.w3.org/1999/html">
   <h2> Create User Account </h2>
   <hr>
+  <%  if (params.has_key?(:user_account) == false) %>
+      <% params[:user_account] = { :first_name => '', :last_name => '', :user_name => '',
+                                   :email => '', :confirm_email => '' } %>
+  <% end %>
   <%= form_for(:user_account, :html => { :class => "form-horizontal" } ) do |f| %>
       <div class="control-group">
         <%= f.label :first_name, :class => "control-label" %>
         <div class="controls">
-          <%= f.text_field :first_name, :class => 'input-large' %>
+          <%= f.text_field :first_name, :class => 'input-large', :value => params[:user_account][:first_name].to_s %>
         </div>
       </div>
 
       <div class="control-group">
         <%= f.label :last_name, :class => "control-label" %>
         <div class="controls">
-          <%= f.text_field :last_name, :class => 'input-large' %>
+          <%= f.text_field :last_name, :class => 'input-large', :value => params[:user_account][:last_name].to_s %>
         </div>
       </div>
 
       <div class="control-group">
         <%= f.label :user_name, :class => "control-label" %>
         <div class="controls">
-          <%= f.text_field :user_name, :class => 'input-large' %>
+          <%= f.text_field :user_name, :class => 'input-large', :value => params[:user_account][:user_name].to_s %>
         </div>
       </div>
 
       <div class="control-group">
         <%= f.label :email, :class => "control-label" %>
         <div class="controls">
-          <%= f.text_field :email, :class => 'input-large' %>
+          <%= f.text_field :email, :class => 'input-large', :value => params[:user_account][:email].to_s %>
         </div>
       </div>
 
       <div class="control-group">
         <%= f.label :confirm_email, :class => "control-label" %>
         <div class="controls">
-          <%= f.text_field :confirm_email, :class => 'input-large' %>
+          <%= f.text_field :confirm_email, :class => 'input-large', :value => params[:user_account][:confirm_email].to_s %>
         </div>
       </div>
 
