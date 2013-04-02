@@ -59,6 +59,22 @@ Feature: User can create an account
     Then I should be on the home page
     And I should see "User 'test' created."
 
+  Scenario: Attempt to login with bad user
+    Given I am on the home page
+    When I fill in "user_name" with "static2"
+    And I fill in "password" with "password"
+    And I press "Sign in"
+    Then I should be on the home page
+    And I should see "User 'static2' not found!"
+
+  Scenario: Attempt to login with bad password
+    Given I am on the home page
+    When I fill in "user_name" with "static"
+    And I fill in "password" with "not_the_password"
+    And I press "Sign in"
+    Then I should be on the home page
+    And I should see "Password did not match"
+
   Scenario: Log in with existing user then log out
     Given I am on the home page
     When I fill in "user_name" with "static"
