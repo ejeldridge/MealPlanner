@@ -1,6 +1,8 @@
 /*
 *= require bootstrap/bootstrap.min
 *= require bootstrap/bootstrap-responsive.min
+*= require bootstrap-calendar/bootstrap.calendar
+*= require ui-lightness/jquery-ui-1.10.2.custom
 */
 /* ==========================================================================
    Author's custom styles

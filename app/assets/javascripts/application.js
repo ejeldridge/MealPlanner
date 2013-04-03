@@ -12,3 +12,5 @@
 //
 //= require main
 //= require jquery_ujs
+
+var $ = jQuery;
