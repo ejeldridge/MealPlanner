@@ -3,4 +3,3 @@
 //= require bootstrap/modernizr-2.6.2-respond-1.1.0.min
 //= require bootstrap-calendar/bootstrap.calendar
 //= require jqueryui/jquery-ui-1.10.2.custom
-//= require PWDMeter/pwdmeter
