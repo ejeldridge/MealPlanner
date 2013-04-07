@@ -50,7 +50,7 @@
 
      font-size: 32px;
      font-weight: bold;
-     color: rgba(0, 0, 0, 0.3);
+     color: blue;
      text-align: center;
 
      -moz-transition: border 0.2s linear 0s, box-shadow 0.2s linear 0s;
@@ -70,7 +70,8 @@
 }
 
 .calendar TD.weekend {
-     color: rgba(0, 0, 0, 0.1);
+     color: blue;
+    background-color: lightgray;
 }
 
 .calendar TD.today {
