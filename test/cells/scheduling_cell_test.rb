@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class SchedulerCalendarCellTest < Cell::TestCase
+class SchedulingCellTest < Cell::TestCase
   test "display" do
     invoke :display
     assert_select "p"

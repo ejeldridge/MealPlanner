@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  event_type: 1
+  event_date: 2013-04-06
+
+two:
+  event_type: 1
+  event_date: 2013-04-06

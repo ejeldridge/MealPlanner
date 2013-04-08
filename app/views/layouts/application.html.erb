@@ -97,15 +97,10 @@
           </div>
       <% end %>
   <% end %>
-  <div class="main-content container">
+  <div id="main-content" class="container span9">
     <%= yield %>
-    <div class="span2">
-      <div class="row">
-        <div class="span4" id="calendar"></div>
-      </div>
-    </div>
   </div>
-
+  <%= render_cell :scheduling, :display %>
 </div>
 <div class="navbar-fixed-bottom container">
   <p>&copy; Meal Planner 2013</p>

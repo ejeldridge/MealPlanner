@@ -1,4 +1,9 @@
 MealPlanner::Application.routes.draw do
+  resources :schedules
+
+  match '/schedules/:year/:month/:day' => 'schedules#day'
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

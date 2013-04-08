@@ -13,14 +13,25 @@
 //= require main
 //= require jquery_ujs
 
-var $ = jQuery;
+jQuery.ajaxSetup({
+    'beforeSend': function (xhr) {
+        xhr.setRequestHeader("Accept", "text/javascript")
+    }
+});
+
+jQuery.fn.submitWithAjax = function () {
+    this.submit(function () {
+        $.post(this.action, $(this).serialize(), null, "script");
+        return false;
+    });
+    return this;
+};
 
 $(document).ready(function () {
-
     var evnts = function () {
         return {
             "event": [
-                {"date": "01/01/2012", "title": "1"}
+                {"date": "04/05/2013", "title": "1"}
                 ,
                 {"date": "02/02/2012", "title": "2"}
                 ,
@@ -47,23 +58,24 @@ $(document).ready(function () {
         }
     };
 
+//    $("#new_review").submitWithAjax();
+    var glob_current_day = new Date();
+
     var cal = $('#calendar');
     if (cal) {
         cal.Calendar({ 'events': evnts, 'weekStart': 1 })
             .on('changeDay', function (event) {
-                alert(event.day.valueOf() + '-' + event.month.valueOf() + '-' + event.year.valueOf());
-            })
-            .on('onEvent', function (event) {
-                alert(event.day.valueOf() + '-' + event.month.valueOf() + '-' + event.year.valueOf());
-            })
-            .on('onNext', function (event) {
-                alert("Next");
-            })
-            .on('onPrev', function (event) {
-                alert("Prev");
+                $.post("/schedules/" + event.year.valueOf() + "/" + event.month.valueOf() + "/" + event.day.valueOf());
             })
             .on('onCurrent', function (event) {
-                alert("Current");
+                $.post("/schedules/" + glob_current_day.getFullYear().valueOf() + "/" + (glob_current_day.getMonth() + 1).valueOf() + "/" + glob_current_day.getDate().valueOf());
             });
     }
+
+    try {
+         $.post("/schedules/" + glob_current_day.getFullYear().valueOf() + "/" + (glob_current_day.getMonth() + 1).valueOf() + "/" + glob_current_day.getDate().valueOf());
+    } catch (e) {
+        alert(e.message);
+    }
+
 });
