@@ -1,0 +1,15 @@
+<% if @schedule.nil? %>
+    Something
+<% else %>
+    <% @schedule.each do |meal| %>
+        <div>
+          <div class="label">
+            <%= meal.event_type_str %>
+          </div>
+          <div class="content">
+            <%= meal.recipe_name %>
+          </div>
+        </div>
+    <% end %>
+<% end %>
+

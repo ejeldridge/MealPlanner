@@ -82,8 +82,11 @@ class SchedulesController < ApplicationController
   end
 
   def day
-    @day = params[:day]
-    @month = params[:month]
-    @year = params[:year]
+    day = params[:day]
+    month = params[:month]
+    year = params[:year]
+    dateStr = "#{year}" + ("%02d" % month) + ("%02d" % day)
+
+    @schedule = Schedule.search_by_date(Date.parse(dateStr))
   end
 end
