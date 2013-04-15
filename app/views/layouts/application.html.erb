@@ -67,11 +67,11 @@
         </ul>
         <ul class="nav pull-right">
           <li>
-            <%= link_to "Create Account", user_accounts_path() unless session[:user] %>
-            <%= link_to "Logout", logout_path() unless !session[:user] %>
+            <%= link_to "Create Account", user_accounts_path() unless user_session.user_exists? %>
+            <%= link_to "Logout", logout_path() if user_session.user_exists? %>
           </li>
         </ul>
-        <% if !session[:user] %>
+        <% unless user_session.user_exists? %>
             <form action="/login" class="navbar-form pull-right" method="post">
               <input class="span2" name="user_name" type="text" placeholder="Username">
               <input class="span2" name="password" type="password" placeholder="Password">
@@ -82,7 +82,6 @@
     </div>
   </div>
 </div>
-<%= puts cookies[:user_name] %>
 
 <div class="accordion span3 sidebar">
   <div class="sidebar-item"><%= render_cell :recipe_toolbox, :display %></div>
