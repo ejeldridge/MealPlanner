@@ -7,6 +7,11 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 @user1 = UserAccount.create(email: 'someone@email.com', last_name: 'White', first_name: 'Joe')
 @user2 = UserAccount.create(email: 'someone.else@email.com', last_name: 'Smith', first_name: 'Mary')
+@bdd_user = UserAccount.create(first_name: 'Test', last_name: 'Guy',
+            email: 'test@guy.com',
+            salt: 'lVBQNHDpMVtfMjySQJNpJZAegadgRLBHaXNAFNtnYSrMPRKxif',
+            password_hash: 'db79128ddf7254ba1f000309d50f8e883d2927be80437e8075d0bf84ccdb1f22',
+            user_name: 'static')
 
 
 @recipe1 = Recipe.create(recipe_name: 'Chocolate Cake', ingredients: 'stuff',
