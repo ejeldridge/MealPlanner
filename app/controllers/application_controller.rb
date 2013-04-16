@@ -5,6 +5,11 @@ class ApplicationController < ActionController::Base
 
   end
 
+  def user_session
+    @user_session ||= UserSession.new(session)
+  end
+  helper_method :user_session
+
   def login
     @user_accounts = UserAccount.all
     user_found, good_login = false, false
@@ -31,7 +36,7 @@ class ApplicationController < ActionController::Base
       my_account.session = session_id
       my_account.session_expire = Time.now + 3600
       my_account.save
-      user_session = new UserSession(my_account.user_name)
+      session[:user_id] = my_account.id
       flash[:notice] = "Welcome back " + my_account.first_name
       redirect_to root_url
     end
