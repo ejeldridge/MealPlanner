@@ -252,3 +252,59 @@ end
 Then /^show me the page$/ do
   save_and_open_page
 end
+#TODO Implement later
+When(/^I select "([^"]*)"$/) do |arg|
+  pending
+end
+#TODO Implement later
+Given(/^"([^"]*)" is scheduled for breakfast$/) do |arg|
+  pending
+end
+#TODO Implement later
+When(/^"([^"]*)" is scheduled for lunch$/) do |arg|
+  pending
+end
+#TODO Implement later
+When(/^"([^"]*)" is scheduled for dinner$/) do |arg|
+  pending
+end
+#TODO Implement later
+When(/^I delete the dinner schedule$/) do
+  pending
+end
+#TODO Implement later
+Given(/^I have "([^"]*)" in recipe database$/) do |arg|
+  pending
+end
+#TODO Implement later
+When(/^I delete recipe with title "([^"]*)"$/) do |arg|
+  pending
+end
+#TODO Implement later
+When(/^I edit recipe with recipe name "([^"]*)"$/) do |arg|
+  pending
+end
+#TODO Implement later
+When(/^I fill in search with "([^"]*)"$/) do |arg|
+  pending
+end
+#TODO Implement later
+When(/^"([^"]*)" is scheduled for breakfast today$/) do |arg|
+  pending
+end
+#TODO Implement later
+Then(/^I should see "([^"]*)" in the up-coming meals view$/) do |arg|
+  pending
+end
+#TODO Implement later
+When(/^I have "([^"]*)" selected as favorite$/) do |arg|
+  pending
+end
+#TODO Implement later
+Then(/^I should see "([^"]*)" first in favorite recipe view$/) do |arg|
+  pending
+end
+#TODO Implement later
+When(/^I should see "([^"]*)" second in favorite recipe view$/) do |arg|
+  pending
+end
