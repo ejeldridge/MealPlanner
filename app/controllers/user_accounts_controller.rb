@@ -60,11 +60,11 @@ class UserAccountsController < ApplicationController
       @user.save
       flash[:notice] = "User '" + @user.user_name.to_s + "' created."
       session_id  =  (0...50).map{ o[rand(o.length)] }.join
-      session[:user] = @user.user_name
       my_account = UserAccount.find_by_user_name(@user.user_name)
       my_account.session = session_id
       my_account.session_expire = Time.now + 3600
       my_account.save
+      session[:user_id] = my_account.id
       redirect_to root_url
     end
 
