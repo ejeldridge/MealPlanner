@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html style="" class=" js no-flexbox canvas canvastext webgl no-touch geolocation postmessage no-websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients no-cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths"><!--<![endif]--><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Meal Planner</title>
+  <link href="Iteration%202_files/bootstrap.css" media="all" rel="stylesheet" type="text/css">
+<link href="Iteration%202_files/bootstrap-responsive.css" media="all" rel="stylesheet" type="text/css">
+<link href="Iteration%202_files/main.css" media="all" rel="stylesheet" type="text/css">
+<link href="Iteration%202_files/application.css" media="all" rel="stylesheet" type="text/css">
+<link href="Iteration%202_files/recipes.css" media="all" rel="stylesheet" type="text/css">
+<link href="Iteration%202_files/user_account.css" media="all" rel="stylesheet" type="text/css">
+  <script src="Iteration%202_files/modernizr-2.js" type="text/javascript"></script>
+<script src="Iteration%202_files/jquery-1.js" type="text/javascript"></script>
+<script src="Iteration%202_files/bootstrap.js" type="text/javascript"></script>
+<script src="Iteration%202_files/pwdmeter.js" type="text/javascript"></script>
+<script src="Iteration%202_files/main.js" type="text/javascript"></script>
+<script src="Iteration%202_files/jquery_ujs.js" type="text/javascript"></script>
+<script src="Iteration%202_files/application.js" type="text/javascript"></script>
+  <meta content="authenticity_token" name="csrf-param">
+<meta content="Da5ch1igs8mimDZO+thgitzFYf3WZQMqfnk2mWDaA8g=" name="csrf-token">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width">
+
+  <style>
+      body {
+          padding-top: 60px;
+          padding-bottom: 40px;
+      }
+  </style>
+
+</head>
+<body>
+<!--[if lt IE 7]>
+<p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+    your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to
+    improve your experience.</p>
+<![endif]-->
+
+<!-- This code is taken from http://twitter.github.com/bootstrap/examples/hero.html -->
+
+<div class="navbar navbar-inverse navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>
+      <a class="brand" href="http://127.0.0.1:3000/">Meal Planner</a>
+
+      <div class="nav-collapse collapse">
+        <ul class="nav">
+          <li class="active"><a href="http://127.0.0.1:3000/">Home</a></li>
+          <!--
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li><a href="#">Action</a></li>
+              <li><a href="#">Another action</a></li>
+              <li><a href="#">Something else here</a></li>
+              <li class="divider"></li>
+              <li class="nav-header">Nav header</li>
+              <li><a href="#">Separated link</a></li>
+              <li><a href="#">One more separated link</a></li>
+            </ul>
+          </li>
+          -->
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <ul class="nav pull-right">
+          <li>
+            
+            <a href="http://127.0.0.1:3000/logout">Logout</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="accordion span3 sidebar">
+  <div class="sidebar-item"><div class="accordion-group recipes-toolbox">
+  <span class="accordion-heading sidebar-title">Recipes Toolbox</span>
+  <div class="accordion-inner">
+    <a href="http://127.0.0.1:3000/recipes/new" class="btn">Add New Recipe</a>
+  </div>
+</div>
+</div>
+  <div class="sidebar-item"><div class="accordion-group recipes_list">
+  <span class="accordion-heading sidebar-title">All Recipes</span>
+  <div class="accordion-inner">
+      <div class="recipe">
+        <a href="http://127.0.0.1:3000/recipes/1">Test</a>
+      </div>
+        <div class="recipe">
+        <a href="http://127.0.0.1:3000/recipes/2">Example</a>
+      </div>
+  </div>
+</div>
+</div>
+  <div class="sidebar-item"><div class="accordion-group favorite recent recipes_list">
+  <div class="accordion-heading">
+    <span class="sidebar-title">Favorite and Recent Recipes</span>
+  </div>
+
+  <div class="accordion-inner">
+        <div class="recipe">
+          <a href="http://127.0.0.1:3000/recipes/1">Test</a>
+        </div>
+        <div class="recipe">
+          <a href="http://127.0.0.1:3000/recipes/2">Example</a>
+        </div>
+  </div>
+</div></div>
+</div>
+<div>
+  <div class="main-content container"><div class="span6">
+  <div>
+    <h2 class="accordion-heading">Recipe Detail</h2>
+    <div class="">
+      <a href="http://127.0.0.1:3000/recipes/2/edit"><i class="icon-pencil"></i></a>
+      <a href="http://127.0.0.1:3000/recipes/2" data-method="delete" rel="nofollow"><i class="icon-trash"></i></a>
+    </div>
+  </div>
+  <hr>
+  <div class="accordion-group">
+    <p class="recipe_name">
+      </p><p class="label">Recipe Name:</p>
+      <div class="content">Example</div>
+    <p></p>
+    <p class="recipe_ingredients">
+      </p><p class="label">Ingredients:</p>
+      <ul class="">
+            <li>asdfasdfasd</li>
+      </ul>
+    <p></p>
+    <p class="recipe_steps">
+      </p><p class="label">Steps:</p>
+      <ol class="">
+            <li>adsfasdfasdf</li>
+      </ol>
+    <p></p>
+  </div>
+</div></div>
+</div>
+<div class="navbar-fixed-bottom container">
+  <p>© Meal Planner 2013</p>
+</div>
+
+
+
+
+<div style="position: absolute; opacity: 0; z-index: -1; width: 1px; max-width: 1px; height: 1px; max-height: 1px; top: 0px; left: 0px;" id="GooglePlusOneButtonByPrettyToolsDiv"><iframe src="Iteration%202_files/fastbutton.htm" style="width: 1px; max-width: 1px; height: 1px; max-height: 1px;"></iframe></div></body></html>
