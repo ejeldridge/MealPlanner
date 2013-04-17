@@ -308,3 +308,11 @@ end
 When(/^I should see "([^"]*)" second in favorite recipe view$/) do |arg|
   pending
 end
+When /^The test Account exists$/ do
+  @bdd_user = UserAccount.create(first_name: 'Test', last_name: 'Guy',
+                                 email: 'test@guy.com',
+                                 salt: 'lVBQNHDpMVtfMjySQJNpJZAegadgRLBHaXNAFNtnYSrMPRKxif',
+                                 password_hash: 'db79128ddf7254ba1f000309d50f8e883d2927be80437e8075d0bf84ccdb1f22',
+                                 user_name: 'static')
+  @bdd_user.save
+end

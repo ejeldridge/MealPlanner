@@ -50,6 +50,7 @@ Feature: User can create an account
 
   Scenario: Submit User Account with existing user
     Given I am on the home page
+    And The test Account exists
     When I follow "Create Account"
     Then I should be on the user_accounts page
     When I fill in "user_account_first_name" with "Test"
@@ -65,6 +66,7 @@ Feature: User can create an account
 
   Scenario: Submit User Account with valid data
     Given I am on the home page
+    And The test Account exists
     When I follow "Create Account"
     Then I should be on the user_accounts page
     When I fill in "user_account_first_name" with "Test"
@@ -80,6 +82,7 @@ Feature: User can create an account
 
   Scenario: Attempt to login with bad user
     Given I am on the home page
+    And The test Account exists
     When I fill in "user_name" with "static2"
     And I fill in "password" with "password"
     And I press "Sign in"
@@ -88,6 +91,7 @@ Feature: User can create an account
 
   Scenario: Attempt to login with bad password
     Given I am on the home page
+    And The test Account exists
     When I fill in "user_name" with "static"
     And I fill in "password" with "not_the_password"
     And I press "Sign in"
@@ -96,6 +100,7 @@ Feature: User can create an account
 
   Scenario: Log in with existing user then log out
     Given I am on the home page
+    And The test Account exists
     When I fill in "user_name" with "static"
     And I fill in "password" with "password"
     And I press "Sign in"
